@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    O'zbekisto Respublikasi Adliya Vazirligi
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/css/meno.css' %}" type="text/css">
+{% endblock %}
+{% block menyu %}
+<ul class="navbar-nav ml-auto">
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
+
+    </a>
+  </li>
+
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
+    <span class="sr-only">(current)</span>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 style="text-align: center;">{{ object.name }}</h1>
+      <div class="row">
+        <a style="margin-top: 100px;" class="main_a1" href="{% url 'department-add' %}">Add</a>
+        {% for item in department %}
+          <div style="text-align: center; margin-top: 100px;" class="col-lg-5  col-md-5  col-sm-5 col-12 main" >
+            <a class="main_a" href="{% url 'department-detail' item.pk %}">
+              <p style="padding: 50px;">{{item.name}}</p>
+            </a>
+            <a style="font-size: 20px;" class="main_a" href="{% url 'department-edit' item.id %}">Edit</a>
+            <a style="font-size: 20px;" class="main_a" href="{% url 'department-delete' item.id %}">Delete</a>
+          </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}
+
+
+  <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
+                          <a href="{% url 'department-detail' item.pk %}" style="background-image: url(/{{item.image}})"class="destinations_item">
+                              <div class="sq_parent">
+                                  <div class="sq_wrap">
+                                      <div class="sq_content">
+                                          <div class="_content">
+                                            {{ item.name }}
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                      </a>
+                      </div> -->

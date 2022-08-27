@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    O'zbekisto Respublikasi Adliya Vazirligi
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/css/viloyatlar.css' %}" type="text/css">
+{% endblock %}
+{% block menyu %}
+<ul class="navbar-nav ml-auto">
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
+
+    </a>
+  </li>
+
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
+    <span class="sr-only">(current)</span>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="destinations">
+            <div class="section_content_">
+                <div class="scroll">
+                    <div class="row">
+                    {% for item in Regions %}
+                        <div class="col-md-3">
+                            <a href="{% url 'region-detail' item.pk %}" style="background-image: url(/{{item.image}})"class="destinations_item">
+                                <div class="sq_parent">
+                                    <div class="sq_wrap">
+                                        <div class="sq_content">
+                                            <div class="_content">
+                                                <h3 class="_title">{{item.name}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+.wraper{
+  width: 100%;
+  background-color: white;
+  display: flex;
+
+
+}
+
+.main{
+  text-decoration: none;
+  background-color: #4db8ff;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+.image{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+
+}
+.main:hover{
+  text-decoration: none;
+  background-color: #074772;
+  transition: all 0.3s ease-in;
+}
+.main_a{
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+}
+
+.main_a:hover{
+  text-decoration: none;
+  color: white;
+}

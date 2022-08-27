@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    O'zbekisto Respublikasi Adliya Vazirligi
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/css/meno.css' %}" type="text/css">
+{% endblock %}
+{% block menyu %}
+<ul class="navbar-nav ml-auto">
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
+
+    </a>
+  </li>
+
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
+    <span class="sr-only">(current)</span>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 style="text-align: center;">{{ object.name }}</h1>
+      <div class="row">
+        {% for item in subdepartment %}
+          <div style="text-align: center; margin-top: 100px;" class="col-lg-5  col-md-5  col-sm-3 col-12 main" >
+            <a class="main_a" href="{% url 'subdepartment-detail' item.pk %}">
+              <p style="padding: 50px;">{{item.name}}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

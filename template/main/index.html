@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    O'zbekisto Respublikasi Adliya Vazirligi
+{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static '/css/section.css' %}" type="text/css">
+{% endblock %}
+
+
+{% block content %}
+{% block menyu %}
+<ul class="navbar-nav ml-auto">
+
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
+      <span class="sr-only">(current)</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
+  </li>
+</ul>
+{% endblock %}
+
+<!-- Hero Section Begin -->
+
+
+
+
+
+<div class="container_1">
+  <div class="images">
+    <img src="{% static '/images/vazirlik_dLdB9a9_xdEafar.webp' %}" alt="Snow" style="width:100%">
+  </div>
+  <div class="button">
+    <a href="{% url 'region' %}">
+      <button class="btn">Kirish</button>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+<!-- Hero Section End -->
+
+<!-- Services Section Begin -->
+
+
+
+
+
+
+{% endblock %}

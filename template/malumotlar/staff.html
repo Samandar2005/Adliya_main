@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}
+    O'zbekisto Respublikasi Adliya Vazirligi
+{% endblock %}
+
+{% block custom_css %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static '/css/staff/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/css/meno.css' %}" type="text/css">
+<!-- Doctery Icons -->
+<link rel="stylesheet" href="{% static '/css/staff/pbminfotech-base-icons.css' %}">
+<!-- Shortcode CSS -->
+<link rel="stylesheet" href="{% static '/css/staff/shortcode.css' %}">
+<!-- Base CSS -->
+<link rel="stylesheet" href="{% static '/css/staff/base.css' %}">
+<!-- Style CSS -->
+<link rel="stylesheet" href="{% static '/css/staff/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+{% block menyu %}
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
+      <span class="sr-only">(current)</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
+  </li>
+</ul>
+{% endblock menyu %}
+<body>
+
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+        <div class="page-content">
+            <!-- Doctor Single -->
+            <section class="section-lgx">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="pbmit-team-details">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="pbmit-team-img">
+                                            <img src="/{{object.img}}" class="w-100" alt="" /></div>
+                                    </div>
+                                    <div class="col-lg-7 pbmit-team-details-inner">
+                                        <div class="pbmit-team-summary">
+                                            <h2 class="pbmit-team-title">{{object.last_name}}  {{object.first_name}}</h2>
+                                            <h4 class="pbmit-team-designation">{{object.posation}}</h4>
+                                        </div>
+                                        <div class="pbmit-short-description">
+                                            Highly qualified and practical experienced doctor with a diversity of skills
+                                            and special interests. Always prepared for all type of surgeries and
+                                            emergencies cases.
+                                        </div>
+                                        <ul class="pbmit-single-team-info">
+                                            <li><label>Age</label>{{object.age}}</li>
+                                            <li><label>Phone</label> <a href="tel:123456789">123456789</a></li>
+                                            <li><label>Email</label> <a
+                                                    href="mailto:justin@example.com">justin@example.com</a></li>
+
+                                        </ul>
+                                        <ul class="pbmit-social-links pbmit-team-social-links">
+                                            <li class="pbmit-social-li pbmit-social-facebook">
+                                                <a href="#" title="Facebook" target="_blank">
+                                                    <span>
+                                                        <i class="pbmit-base-icon-facebook-squared"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="pbmit-social-li pbmit-social-twitter">
+                                                <a href="#" title="Twitter" target="_blank">
+                                                    <span>
+                                                        <i class="pbmit-base-icon-twitter"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="pbmit-social-li pbmit-social-linkedin">
+                                                <a href="#" title="LinkedIn" target="_blank">
+                                                    <span>
+                                                        <i class="pbmit-base-icon-linkedin-squared"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="pbmit-social-li pbmit-social-flickr">
+                                                <a href="#" title="Flickr" target="_blank">
+                                                    <span>
+                                                        <i class="pbmit-base-icon-flickr"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <a href="{% url 'downlad' object.pk %}">Download</a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- Doctor Single end -->
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+{% endblock content %}
