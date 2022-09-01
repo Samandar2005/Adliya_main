@@ -16,6 +16,7 @@ class Region(models.Model):
 class Department(models.Model):
     name = models.CharField(max_length=250)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    icon = models.IntegerField(max_length=10, default=1)
 
     def __str__(self):
         return self.name

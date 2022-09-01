@@ -7,48 +7,34 @@
     <meta name="description" content="Elektro-Device OFF Page">
     <meta name="keywords" content="Elektro Device">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" href="{% static '/images/logo-new.png' %}">
     <title>
         {% block title %}
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static '/css/section.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/plugins/bootstrap/bootstrap.min.css' %}">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="{% static '/css/plugins/slick/slick.css' %}">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="{% static '/css/plugins/themify-icons/themify-icons.css' %}">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="{% static '/css/plugins/venobox/venobox.css' %}">
+    <!-- card slider -->
+    <link rel="stylesheet" href="{% static '/css/plugins/card-slider/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/viloyatlar.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static '/css/header.css' %}" type="text/css">
+
+
     {% block custom_css %}
 
     {% endblock %}
 </head>
 <body>
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-<link rel="stylesheet" href="{% static '/css/header.css' %}" type="text/css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+    {% block menyu %}
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<header class="header">
-  <div class="fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-      <div class="container">
-        <a href="{% url 'main' %}">
-            <img  src="{% static '/images/logo-new.png' %}" width="80px" height="80px" alt="">
-        </a>
-
-            <p class="main_p" style="color: white;
-            text-decoration: none; top: 20px;">O'zbekisto Respublikasi Adliya Vazirligi</p>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          {% block menyu %}
-
-          {% endblock %}
-
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+      {% endblock %}
 
 
 {% block content %}

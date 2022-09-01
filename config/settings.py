@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p$lz@s(#^@)k51d%uc8-oa52_+d3zg@xpuh5dm4-41n*-lie+6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'word',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"]
 
+LOGOUT_REDIRECT_URL = 'main'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
