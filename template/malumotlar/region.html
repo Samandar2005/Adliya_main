@@ -12,40 +12,75 @@
 <link rel="stylesheet" href="{% static '/css/bootstrap/swiper-bundle.min.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static '/css/bootstrap/main.css' %}" type="text/css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/css/header/css/owl.carousel.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style2.css' %}" type="text/css">
 {% endblock %}
 
 {% block menyu %}
-    <header class="header">
-        <div class="fixed-top">
-          <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-            <div class="container">
-              <a href="{% url 'main' %}">
-                  <img  src="{% static '/images/logo-new.png' %}" width="80px" height="80px" alt="">
-              </a>
-            <p class="main_p" style="color: white;
-                  text-decoration: none; top: 20px;">O'zbekisto Respublikasi Adliya Vazirligi</p>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="{% url 'main' %}">Bosh Ekran
-                        <span class="sr-only">(current)</span>
-                      </a>
-                    </li>
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
 
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{% url 'region' %}">Viloyatlar</a>
-                    </li>
-                  </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
-    </header>
-      {% endblock %}
+
+
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="background-color: #07085d;">
+
+  <div class="container">
+    <div class="row align-items-center position-relative">
+
+
+      <div class="site-logo">
+        <a class="navbar-brand" href="{% url 'main' %}" style="display: flex; text-align: center;">
+          <img width="70px" height="70px" src="{% static '/images/logo-new.png' %}" alt="">
+          <h5 style="color: rgba(180, 177, 177, 0.756); padding: 20px;">Adliya Vazirligi
+        </h5>
+        </a>
+      </div>
+      <div class="col-12">
+        <nav class="site-navigation text-right ml-auto " role="navigation">
+          <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+            {% if  user.is_anonymous %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'register' %}"> Ro'yhatdan o'tish</a>
+              </button>
+            </li>
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'login' %}">Kirish</a>
+              </button>
+            </li>
+          {% endif %}
+          {% if  user.is_authenticated %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: white;" href="{% url 'logout' %}">Chiqish</a>
+              </button>
+            </li>
+          {% endif %}
+          </ul>
+        </nav>
+      </div>
+      <div class="toggle-button d-inline-block d-lg-none">
+        <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black">
+          <span class="icon-menu h3"></span></a></div>
+    </div>
+  </div>
+
+</header>
+
+
+{% endblock %}
 
 {% block content %}
-<section id="hero" class="hero">
-  <div class="icon-boxes position-relative">
+<section id="hero" class="hero" style="background-color: white;">
     <div class="container position-relative">
       <div class="row gy-4 mt-5">
         {% if perms.home.can_add_department %}
@@ -71,14 +106,14 @@
               </svg>
               {% endif %}
           </div>
-            <h4 class="title"><a href="" class="stretched-link">{{item.name}}</a></h4>
+            <h4 class="title"><a href="{% url 'department-detail' item.pk %}" class="stretched-link">{{item.name}}</a></h4>
             {% if perms.home.can_change_department %}
             <button type="button" class="btn btn-outline-primary">
               <a style="text-decoration: none; color: white;" href="{% url 'department-edit' item.id %}">O'zgartirish</a>
             </button>
           {% endif %}
           {% if perms.home.can_delete_department %}
-              <button type="button" class="btn btn-outline-primary">
+              <button type="button" style="background-color: ;" class="btn btn-outline-primary">
                 <a style="text-decoration: none; color: white;" href="{% url 'department-delete' item.id %} ">O'chirish</a>
               </button>
           {% endif %}
@@ -86,9 +121,10 @@
         </div>
         {% endfor %}
       </div>
-    </div>
   </div>
 </section>
+
+
 {% endblock %}
 {%block custom_js %}
 
@@ -101,6 +137,12 @@
 <script src="{% static '/js/bootstrap/validate.js' %}"></script>
 <script src="{% static '/js/bootstrap/main.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+<script src="{% static '/css/header/js/jquery-3.3.1.min.js' %} "></script>
+<script src="{% static '/css/header/js/popper.min.js' %} "></script>
+<script src="{% static '/css/header/js/bootstrap.min.js' %} "></script>
+<script src="{% static '/css/header/js/jquery.sticky.js' %} "></script>
+<script src="{% static '/css/header/js/main.js' %} "></script>
 
 {% endblock %}
 

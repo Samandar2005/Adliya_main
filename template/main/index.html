@@ -5,64 +5,95 @@
 {% endblock %}
 
 {% block custom_css %}
+<link rel="stylesheet" href="{% static '/css/header/css/owl.carousel.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style2.css' %}" type="text/css">
 
 {% endblock %}
 
 {% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<header class="navigation fixed-top" style="background-color: #07085d;">
-  <nav class="navbar navbar-expand-lg navbar-dark" >
-    <a class="navbar-brand" href="{% url 'main' %}"><img width="70px" height="70px" src="{% static '/images/logo-new.png' %}" alt="Egen"></a>
-    <h5 style="color: rgba(180, 177, 177, 0.756);">Adliya Vazirligi
-    </h5>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">
-      </span>
-    </button>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- Navigation -->
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      {% if  user.is_anonymous %}
-      <ul class="navbar-nav ml-auto" style="display: flex; padding: 10px 20px;">
-
-        <li style="padding: 0px 10px;" class="nav-item">
-          <button type="button" class="btn btn-outline-primary">
-            <a style="text-decoration: none; color: white;" href="{% url 'register' %}"> Ro'yhatdan o'tish</a>
-          </button>
-
-
-        </li>
-        <li style="padding: 0px 10px;" class="nav-item">
-          <button type="button" class="btn btn-outline-primary">
-            <a style="text-decoration: none; color: white;" href="{% url 'login' %}">Kirish</a>
-          </button>
-        </li>
-      </ul>
-      {% endif %}
-      {% if  user.is_authenticated %}
-      <ul class="navbar-nav ml-auto" style="display: flex; padding: 10px 20px;">
-        <li style="padding: 0px 10px;" class="nav-item">
-          <button type="button" class="btn btn-outline-primary">
-            <a style="text-decoration: none; color: white;" href="{% url 'logout' %}">Chiqish</a>
-          </button>
-        </li>
-      </ul>
-      {% endif %}
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
     </div>
-  </nav>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+
+
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="background-color: #07085d;">
+
+  <div class="container">
+    <div class="row align-items-center position-relative">
+
+
+      <div class="site-logo">
+        <a class="navbar-brand" href="{% url 'main' %}" style="display: flex; text-align: center;">
+          <img width="70px" height="70px" src="{% static '/images/logo-new.png' %}" alt="">
+          <h5 style="color: rgba(180, 177, 177, 0.756); padding: 20px;">Adliya Vazirligi
+        </h5>
+        </a>
+      </div>
+
+      <div class="col-12">
+        <nav class="site-navigation text-right ml-auto " role="navigation">
+
+          <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+            {% if  user.is_anonymous %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'register' %}"> Ro'yhatdan o'tish</a>
+              </button>
+
+
+            </li>
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'login' %}">Kirish</a>
+              </button>
+            </li>
+          {% endif %}
+          {% if  user.is_authenticated %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: white;" href="{% url 'logout' %}">Chiqish</a>
+              </button>
+            </li>
+          {% endif %}
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="toggle-button d-inline-block d-lg-none">
+        <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black">
+          <span class="icon-menu h3"></span></a></div>
+
+    </div>
+  </div>
+
 </header>
+
+
+
+<div class="hero" style="background-image: url('{% static '/images/adliya.jpg' %}');"></div>
+
+
 <!-- Hero Section Begin -->
 
 <!-- banner -->
-<section class="banner bg-cover position-relative d-flex justify-content-center align-items-center"
-  data-background="{% static '/images/adliya.jpg' %}" style="opacity: 0.7;">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- /banner -->
 
 <section>
@@ -95,22 +126,10 @@
 </section>
 
 
-<script src=" {% static '/css/plugins/jQuery/jquery.min.js' %} "></script>
-<!-- Bootstrap JS -->
-<script src="{% static '/css/plugins/bootstrap/bootstrap.min.js' %} "></script>
-<!-- slick slider -->
-<script src="{% static '/css/plugins/slick/slick.min.js' %} "></script>
-<!-- venobox -->
-<script src="{% static '/css/plugins/venobox/venobox.min.js' %} "></script>
-<!-- shuffle -->
-<script src="{% static '/css/plugins/shuffle/shuffle.min.js' %} "></script>
-<!-- apear js -->
-<script src="{% static '/css/plugins/counto/apear.js' %} "></script>
-<!-- counter -->
-<script src="{% static '/css/plugins/counto/counTo.js' %} "></script>
-<script src="{% static '/js/script.js' %} "></script>
-<script src="{% static '/css/plugins/google-map/gmap.js' %}"></script>
+<script src="{% static '/css/header/js/jquery-3.3.1.min.js' %} "></script>
+<script src="{% static '/css/header/js/popper.min.js' %} "></script>
+<script src="{% static '/css/header/js/bootstrap.min.js' %} "></script>
+<script src="{% static '/css/header/js/jquery.sticky.js' %} "></script>
+<script src="{% static '/css/header/js/main.js' %} "></script>
 
-<!-- card slider -->
-<script src="{% static '/css/plugins/card-slider/js/card-slider-min.js' %}  "></script>
 {% endblock %}

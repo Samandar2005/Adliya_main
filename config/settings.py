@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p$lz@s(#^@)k51d%uc8-oa52_+d3zg@xpuh5dm4-41n*-lie+6'
+SECRET_KEY = 'django-insecure-_nk*la_!h&-$wd)1r8bhtx@0%!ir)9-hbttc^4bi9u&i0$ce72'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,18 +76,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'adliyaaa',
-#         'USER': 'Customer',
-#         'PASSWORD': '1',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -137,6 +125,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"]
 
 LOGOUT_REDIRECT_URL = 'main'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

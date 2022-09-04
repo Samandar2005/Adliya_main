@@ -1,6 +1,5 @@
-from email.policy import default
-from tkinter import CASCADE
-from turtle import title
+from this import s
+from turtle import back
 from django.db import models
 
 
@@ -16,10 +15,11 @@ class Region(models.Model):
 class Department(models.Model):
     name = models.CharField(max_length=250)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    icon = models.IntegerField(max_length=10, default=1)
+    region_name = models.CharField(max_length=230)
+    icon = models.IntegerField(default=1)
 
     def __str__(self):
-        return self.name
+        return f"{self.region_name}, {self.name}"
 
 
 class District(models.Model):

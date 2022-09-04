@@ -6,6 +6,72 @@
 
 {% block custom_css %}
 <link rel="stylesheet" href="{% static '/css/viloyatlar.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/owl.carousel.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static '/css/header/css/style2.css' %}" type="text/css">
+
+{% endblock %}
+
+{% block menyu %}
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close mt-3">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+
+
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="background-color: #07085d;">
+
+  <div class="container">
+    <div class="row align-items-center position-relative">
+
+
+      <div class="site-logo">
+        <a class="navbar-brand" href="{% url 'main' %}" style="display: flex; text-align: center;">
+          <img width="70px" height="70px" src="{% static '/images/logo-new.png' %}" alt="">
+          <h5 style="color: rgba(180, 177, 177, 0.756); padding: 20px;">Adliya Vazirligi
+        </h5>
+        </a>
+      </div>
+      <div class="col-12">
+        <nav class="site-navigation text-right ml-auto " role="navigation">
+          <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+            {% if  user.is_anonymous %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'register' %}"> Ro'yhatdan o'tish</a>
+              </button>
+            </li>
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: rgba(47, 113, 236, 0.818);" href="{% url 'login' %}">Kirish</a>
+              </button>
+            </li>
+          {% endif %}
+          {% if  user.is_authenticated %}
+            <li style="padding: 0px 10px;" class="nav-item">
+              <button type="button" class="btn btn-outline-primary">
+                <a style="text-decoration: none; color: white;" href="{% url 'logout' %}">Chiqish</a>
+              </button>
+            </li>
+          {% endif %}
+          </ul>
+        </nav>
+      </div>
+      <div class="toggle-button d-inline-block d-lg-none">
+        <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black">
+          <span class="icon-menu h3"></span></a></div>
+    </div>
+  </div>
+
+</header>
+
+
 {% endblock %}
 
 
@@ -21,7 +87,7 @@
       <div class="scroll">
         <div class="row">
           {% for item in district %}
-            <div class="col-md-3">
+            <div class="col-md-3 col-4">
               <a href="{% url 'district-detail' item.pk %}" style="background-image: url(/{{item.image}})"class="destinations_item">
                 <div class="sq_parent">
                     <div class="sq_wrap">
@@ -40,7 +106,6 @@
     </div>
   </div>
 </div>
-
 </body>
 </html>
 
@@ -55,4 +120,11 @@
 
 
 
+{% endblock %}
+{%block custom_js %}
+<script src="{% static '/css/header/js/jquery-3.3.1.min.js' %} "></script>
+<script src="{% static '/css/header/js/popper.min.js' %} "></script>
+<script src="{% static '/css/header/js/bootstrap.min.js' %} "></script>
+<script src="{% static '/css/header/js/jquery.sticky.js' %} "></script>
+<script src="{% static '/css/header/js/main.js' %} "></script>
 {% endblock %}
