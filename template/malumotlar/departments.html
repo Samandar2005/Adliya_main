@@ -11,6 +11,23 @@
 <link rel="stylesheet" href="{% static '/css/header/css/style.css' %}" type="text/css">
 <link rel="stylesheet" href="{% static '/css/header/css/style2.css' %}" type="text/css">
 
+<style>
+  @media (min-width: 0px) and (max-width: 556px) {
+  ._title {
+     font-size: 0.9em !important;
+  }
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+  ._title {
+     font-size: 1em !important;
+  }
+}
+  @media (min-width: 768px) and (max-width: 992px) {
+  ._title {
+     font-size: 1.2em !important;
+  }
+}
+</style>
 {% endblock %}
 
 {% block menyu %}
@@ -75,6 +92,7 @@
 {% endblock %}
 
 
+
 {% block content %}
 
 <!-- Hero Section Begin -->
@@ -93,7 +111,7 @@
                     <div class="sq_wrap">
                         <div class="sq_content">
                             <div class="_content">
-                                <h3 class="_title">{{item.name}}</h3>
+                                <p class="_title">{{item.name}}</p>
                             </div>
                         </div>
                     </div>
